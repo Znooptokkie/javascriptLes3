@@ -1,3 +1,4 @@
+// Met knoppen erbij elke keer 10 monsters laten zien, met de buttons van vorige les. datasetgit
 let monster = [];
 
 window.addEventListener("load", function () {
