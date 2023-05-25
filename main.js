@@ -12,8 +12,17 @@ window.addEventListener("load", function () {
 function laadData(data) {
   monster = data;
   console.log(monster);
-  for (let i = 0; i < 10; i++) {
-    showMonster(monster[i]);
+  const soort = "Dragon";
+  for (let i = 0; i <= monster.length; i++) {
+    // const naamVanSoort = monster[i].name.includes(soort);
+    switch (true) {
+      case monster[i].name.includes(soort):
+        showMonster(monster[i]);
+        break;
+      // default:
+      //   showMonster(monster[i]);
+      //   break;
+    }
   }
 }
 
@@ -24,6 +33,15 @@ function showMonster(monster) {
   monsterArticle.querySelector(
     "p.description"
   ).innerHTML = `${monster.size} ${monster.alignment} ${monster.type}`;
+  ///
+  const unorderedLijst = monsterArticle.querySelector("ul.actions");
+  monster.actions.forEach((action) => {
+    const lijst = document.createElement("li");
+    lijst.innerHTML = action.name;
+    unorderedLijst.appendChild(lijst);
+  });
+
+  ///
 
   document.body.appendChild(monsterArticle);
 }
